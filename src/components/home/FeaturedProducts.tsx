@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Package } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { products } from "@/data/products";
 
 const featuredProducts = products.slice(0, 6);
@@ -32,9 +32,13 @@ export function FeaturedProducts() {
               className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:shadow-card hover:-translate-y-1"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Product Icon Placeholder */}
-              <div className="mb-4 flex h-32 items-center justify-center rounded-lg bg-muted">
-                <Package className="h-16 w-16 text-muted-foreground/50 transition-transform duration-300 group-hover:scale-110" />
+              {/* Product Image */}
+              <div className="mb-4 h-32 overflow-hidden rounded-lg bg-muted">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
 
               {/* Category Badge */}
