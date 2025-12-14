@@ -15,6 +15,18 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Package, Shield, Truck } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const inquirySchema = z.object({
+  fullName: z.string().min(2, "Name must be at least 2 characters").max(100),
+  companyName: z.string().min(2, "Company name must be at least 2 characters").max(100),
+  email: z.string().email("Invalid email address").max(255),
+  phone: z.string().min(10, "Phone number must be at least 10 digits").max(20),
+  product: z.string().min(1, "Please select a product"),
+  quantity: z.string().min(1, "Please enter quantity").max(100),
+  message: z.string().max(1000).optional(),
+});
 
 const Inquiry = () => {
   const { toast } = useToast();
@@ -23,6 +35,7 @@ const Inquiry = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(preselectedProduct);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (preselectedProduct) {
@@ -32,10 +45,52 @@ const Inquiry = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({});
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      fullName: formData.get("fullName") as string,
+      companyName: formData.get("companyName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      product: selectedProduct,
+      quantity: formData.get("quantity") as string,
+      message: formData.get("message") as string || undefined,
+    };
+
+    // Validate
+    const result = inquirySchema.safeParse(data);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        fieldErrors[err.path[0] as string] = err.message;
+      });
+      setErrors(fieldErrors);
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Submit to database
+    const { error } = await supabase.from("inquiries").insert({
+      full_name: data.fullName,
+      company_name: data.companyName,
+      email: data.email,
+      phone: data.phone,
+      product: data.product,
+      quantity: data.quantity,
+      message: data.message || null,
+    });
+
+    if (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your inquiry. Please try again.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     toast({
       title: "Inquiry Submitted Successfully!",
@@ -136,6 +191,9 @@ const Inquiry = () => {
                       required
                       placeholder="Your full name"
                     />
+                    {errors.fullName && (
+                      <p className="text-sm text-destructive">{errors.fullName}</p>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="companyName">Company Name *</Label>
@@ -145,6 +203,9 @@ const Inquiry = () => {
                       required
                       placeholder="Your company name"
                     />
+                    {errors.companyName && (
+                      <p className="text-sm text-destructive">{errors.companyName}</p>
+                    )}
                   </div>
                 </div>
 
@@ -158,6 +219,9 @@ const Inquiry = () => {
                       required
                       placeholder="business@company.com"
                     />
+                    {errors.email && (
+                      <p className="text-sm text-destructive">{errors.email}</p>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number *</Label>
@@ -168,6 +232,9 @@ const Inquiry = () => {
                       required
                       placeholder="+91 XXXXX XXXXX"
                     />
+                    {errors.phone && (
+                      <p className="text-sm text-destructive">{errors.phone}</p>
+                    )}
                   </div>
                 </div>
 
