@@ -4,6 +4,25 @@ import stretchFilm from "@/assets/products/stretch-film.jpg";
 import greenPetStrap from "@/assets/products/green-pet-strap.jpg";
 import airBubbleRoll from "@/assets/products/air-bubble-roll.jpg";
 import maskingTape from "@/assets/products/masking-tape.jpg";
+import singleSideBlackFoamTape from "@/assets/products/single-side-black-foam-tape.jpg";
+import doubleSideCottonTape from "@/assets/products/double-side-cotton-tape.jpg";
+import doubleSideBluePeFoamTape from "@/assets/products/double-side-blue-pe-foam-tape.jpg";
+import kaptonTape from "@/assets/products/kapton-tape.jpg";
+import vhbTape from "@/assets/products/vhb-tape.jpg";
+import doubleSideRedPolyesterTape from "@/assets/products/double-side-red-polyester-tape.jpg";
+import doubleSideEvaFoamTape from "@/assets/products/double-side-eva-foam-tape.jpg";
+import aluminiumTape from "@/assets/products/aluminium-tape.jpg";
+import floorMarkingTape from "@/assets/products/floor-marking-tape.jpg";
+import ductTape from "@/assets/products/duct-tape.jpg";
+import paperReinforcementTape from "@/assets/products/paper-reinforcement-tape.jpg";
+import craftPaperTape from "@/assets/products/craft-paper-tape.jpg";
+import monoFilamentTape from "@/assets/products/mono-filament-tape.jpg";
+import hdpeTape from "@/assets/products/hdpe-tape.jpg";
+import doubleSideTissueTape from "@/assets/products/double-side-tissue-tape.jpg";
+import singleSidePolyesterTape from "@/assets/products/single-side-polyester-tape.jpg";
+import scappaThermalTape from "@/assets/products/scappa-thermal-tape.jpg";
+import butylRubberTape from "@/assets/products/butyl-rubber-tape.jpg";
+import antiSkidTape from "@/assets/products/anti-skid-tape.jpg";
 
 export interface Product {
   id: string;
@@ -60,6 +79,7 @@ export const products: Product[] = [
     description: "Durable single-sided black foam tape with strong adhesive backing. Ideal for mounting, sealing, and vibration dampening applications.",
     applications: ["Mounting", "Sealing gaps", "Vibration dampening", "Weatherstripping"],
     category: "Foam Tapes",
+    image: singleSideBlackFoamTape,
   },
   {
     id: "5",
@@ -86,6 +106,7 @@ export const products: Product[] = [
     description: "Premium double-sided cotton tape with excellent conformability and strong adhesion on both sides. Ideal for mounting and bonding applications.",
     applications: ["Carpet fixing", "Mounting displays", "Craft applications", "Temporary bonding"],
     category: "Double Sided Tapes",
+    image: doubleSideCottonTape,
   },
   {
     id: "8",
@@ -94,6 +115,7 @@ export const products: Product[] = [
     description: "High-performance double-sided polyethylene foam tape with blue liner. Provides excellent bonding strength and gap-filling capabilities.",
     applications: ["Panel mounting", "Sign installation", "Glazing", "Automotive trim"],
     category: "Double Sided Tapes",
+    image: doubleSideBluePeFoamTape,
   },
   {
     id: "9",
@@ -102,6 +124,7 @@ export const products: Product[] = [
     description: "High-temperature resistant polyimide tape with excellent electrical insulation properties. Withstands temperatures up to 260°C.",
     applications: ["PCB masking", "Electrical insulation", "3D printing", "Heat shielding"],
     category: "Specialty Tapes",
+    image: kaptonTape,
   },
   {
     id: "10",
@@ -110,6 +133,7 @@ export const products: Product[] = [
     description: "Very High Bond acrylic foam tape providing permanent, high-strength bonding. Replaces mechanical fasteners in many applications.",
     applications: ["Metal bonding", "Glass attachment", "Architectural panels", "Signage mounting"],
     category: "Industrial Tapes",
+    image: vhbTape,
   },
   {
     id: "11",
@@ -118,6 +142,7 @@ export const products: Product[] = [
     description: "High-clarity double-sided polyester tape with red liner for easy handling. Excellent for splicing and laminating applications.",
     applications: ["Film splicing", "Label application", "Graphic arts", "Nameplate attachment"],
     category: "Double Sided Tapes",
+    image: doubleSideRedPolyesterTape,
   },
   {
     id: "12",
@@ -126,6 +151,7 @@ export const products: Product[] = [
     description: "Ethylene Vinyl Acetate foam tape with adhesive on both sides. Provides good conformability to irregular surfaces and excellent cushioning.",
     applications: ["Automotive parts", "Electronics assembly", "Mirror mounting", "Decorative trim"],
     category: "Double Sided Tapes",
+    image: doubleSideEvaFoamTape,
   },
   {
     id: "13",
@@ -143,6 +169,7 @@ export const products: Product[] = [
     description: "Dead-soft aluminium foil tape with strong acrylic adhesive. Excellent for HVAC sealing, thermal insulation, and EMI shielding.",
     applications: ["HVAC duct sealing", "Thermal insulation", "Heat reflection", "Pipe wrapping"],
     category: "Specialty Tapes",
+    image: aluminiumTape,
   },
   {
     id: "15",
@@ -151,6 +178,7 @@ export const products: Product[] = [
     description: "Durable vinyl floor marking tape for warehouse and factory floor delineation. Highly visible colors for safety compliance.",
     applications: ["Warehouse lanes", "Safety zones", "Hazard marking", "Aisle identification"],
     category: "Industrial Tapes",
+    image: floorMarkingTape,
   },
   {
     id: "16",
@@ -159,6 +187,7 @@ export const products: Product[] = [
     description: "Heavy-duty cloth-backed tape with strong adhesive for general purpose repairs and applications. Water-resistant and highly versatile.",
     applications: ["General repairs", "Bundling", "Temporary fixes", "Craft projects"],
     category: "Industrial Tapes",
+    image: ductTape,
   },
   {
     id: "17",
@@ -167,6 +196,7 @@ export const products: Product[] = [
     description: "Reinforced paper tape with fiberglass threads for extra strength. Ideal for carton sealing requiring tamper-evidence.",
     applications: ["Carton sealing", "Secure packaging", "Export shipments", "Heavy box sealing"],
     category: "BOPP & Packaging Tapes",
+    image: paperReinforcementTape,
   },
   {
     id: "18",
@@ -175,6 +205,7 @@ export const products: Product[] = [
     description: "Eco-friendly kraft paper tape with water-activated or self-adhesive backing. Sustainable packaging solution.",
     applications: ["Eco packaging", "Box sealing", "Gift wrapping", "Sustainable shipping"],
     category: "BOPP & Packaging Tapes",
+    image: craftPaperTape,
   },
   {
     id: "19",
@@ -183,6 +214,7 @@ export const products: Product[] = [
     description: "High-strength filament tape reinforced with fiberglass strands. Exceptional tensile strength for heavy-duty strapping.",
     applications: ["Bundle strapping", "Pallet reinforcing", "Heavy load securing", "Appliance packaging"],
     category: "Industrial Tapes",
+    image: monoFilamentTape,
   },
   {
     id: "20",
@@ -191,6 +223,7 @@ export const products: Product[] = [
     description: "High-Density Polyethylene tape for pipe wrapping and corrosion protection. Excellent chemical and moisture resistance.",
     applications: ["Pipe wrapping", "Corrosion protection", "Underground applications", "Cable protection"],
     category: "Industrial Tapes",
+    image: hdpeTape,
   },
   {
     id: "21",
@@ -199,6 +232,7 @@ export const products: Product[] = [
     description: "Thin double-sided tissue tape for splicing and mounting light-weight materials. Easy handling with good adhesion.",
     applications: ["Paper splicing", "Mounting photos", "Craft applications", "Envelope sealing"],
     category: "Double Sided Tapes",
+    image: doubleSideTissueTape,
   },
   {
     id: "22",
@@ -207,6 +241,7 @@ export const products: Product[] = [
     description: "Single-sided polyester film tape with excellent dimensional stability and electrical properties. Suitable for high-temperature applications.",
     applications: ["Transformer insulation", "Coil wrapping", "Color coding", "Electrical applications"],
     category: "Specialty Tapes",
+    image: singleSidePolyesterTape,
   },
   {
     id: "23",
@@ -215,6 +250,7 @@ export const products: Product[] = [
     description: "Specialized thermal interface tape for heat dissipation applications. Provides efficient thermal transfer between components.",
     applications: ["Heat sink mounting", "LED assembly", "Electronics cooling", "Thermal management"],
     category: "Specialty Tapes",
+    image: scappaThermalTape,
   },
   {
     id: "24",
@@ -223,6 +259,7 @@ export const products: Product[] = [
     description: "Self-fusing butyl rubber tape for waterproofing and sealing applications. Excellent weather and UV resistance.",
     applications: ["Roof sealing", "Waterproofing", "Pipe repair", "HVAC sealing"],
     category: "Specialty Tapes",
+    image: butylRubberTape,
   },
   {
     id: "25",
@@ -231,6 +268,7 @@ export const products: Product[] = [
     description: "High-grip anti-slip tape for safety applications on stairs, ramps, and walkways. Durable mineral-coated surface.",
     applications: ["Stair treads", "Ramp safety", "Walkway marking", "Industrial flooring"],
     category: "Industrial Tapes",
+    image: antiSkidTape,
   },
 ];
 
